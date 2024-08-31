@@ -1,0 +1,10 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+#Debugging
+launch.json
+settings.json
+
+#env
+.env

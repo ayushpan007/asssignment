@@ -4,9 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const register = async (payload) => {
     const { username, email, password } = payload;
-
     try {
-
         const newUser = new User({
             username,
             email,
@@ -38,17 +36,14 @@ const login = async (payload) => {
 
                 const access_token = jwt.sign({
                     id: user._id,
-                    isAdmin: user.isAdmin,   
-                }, process.env.JWT_SEC, 
-                {expiresIn: "1d"}
+                    isAdmin: user.isAdmin,
+                }, process.env.JWT_SEC,
+                    { expiresIn: "1d" }
                 )
-
-                return { doc: {...returnPayload, access_token} }
+                return { doc: { ...returnPayload, access_token } }
             }
-
             return { errors: [{ name: 'password', message: 'wrong password' }] };
         }
-
         return { errors: [{ name: 'user', message: 'no user found with this username' }] };
     }
     catch {

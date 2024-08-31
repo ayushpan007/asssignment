@@ -3,11 +3,11 @@ const express = require('express')
 const router = express.Router();
 
 const userRoutes = require('./user')
-const orderRoutes = require('./order')
 const authRoutes = require('./auth')
+const pingRoutes = require('./ping')
 
 userRoutes(router);
-orderRoutes(router);
 authRoutes(router);
+pingRoutes(router);
 
 module.exports = router
